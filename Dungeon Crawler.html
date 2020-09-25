@@ -11,77 +11,36 @@
 
 <tw-story></tw-story>
 
-<tw-storydata name="Dungeon Crawler" startnode="1" creator="Twine" creator-version="2.3.9" ifid="1539E4EB-3CA4-44AB-9574-41C55D099E6E" zoom="1" format="Harlowe" format-version="3.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Start" tags="" position="837,0" size="100,100">You, a brand new adventurer, are on your first journey! You have a sword and shield. You set off into the deep woods in search for monsters to slay.
+<tw-storydata name="Dungeon Crawler" startnode="1" creator="Twine" creator-version="2.3.9" ifid="1539E4EB-3CA4-44AB-9574-41C55D099E6E" zoom="1" format="Harlowe" format-version="3.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Start" tags="" position="836,0" size="100,100">You, a brand new adventurer, are on your first journey! You have a sword and shield. You set off into the deep woods in search for monsters to slay.
 
-(set: $hp = 10)
-(set: $buttonFlag to false)
-(set: $bookFlag to true)
 
-[[Enter the woods]] </tw-passagedata><tw-passagedata pid="2" name="Enter Dungeon" tags="" position="823,232" size="100,100">=&gt;&lt;= 
-HP: $hp/10
-&lt;==
-
-You touch the door, causing it to briefly glow and open. After heading inside, the door immediately shuts behind you, and you are unable to turn back.
+[[Enter the woods]] </tw-passagedata><tw-passagedata pid="2" name="Enter Dungeon" tags="" position="823,232" size="100,100">You touch the door, causing it to briefly glow and open. After heading inside, the door immediately shuts behind you, and you are unable to turn back.
 You see a stairway to your left, and an open room in front.
+
 [[Head downstairs]]
-[[Enter the room]]</tw-passagedata><tw-passagedata pid="3" name="Run Away" tags="" position="686,184" size="100,100">=&gt;&lt;= 
-HP: $hp/10
-&lt;==
+[[Enter the room]]</tw-passagedata><tw-passagedata pid="3" name="Run Away" tags="" position="685,184" size="100,100">You leave the door, concerned that it might be too dangerous for a new adventurer like yourself. Yet, you find yourself unable to leave the woods, as you always seem to end up in front of the door...
 
-You leave the door, concerned that it might be too dangerous for a new adventurer like yourself. Yet, you find yourself unable to leave the woods, as you always seem to end up in front of the door...
-
-[[Enter Dungeon]] </tw-passagedata><tw-passagedata pid="4" name="Enter the room" tags="" position="686,384" size="100,100">=&gt;&lt;= 
-HP: $hp/10
-&lt;==
-
-You encounter a skeleton! It doesn&#39;t seem to notice you yet...
+[[Enter Dungeon]] </tw-passagedata><tw-passagedata pid="4" name="Enter the room" tags="" position="686,344" size="100,100">You encounter a skeleton! It doesn&#39;t seem to notice you yet...
 
 [[Sneak past it]]
-[[Attack Skeleton]]</tw-passagedata><tw-passagedata pid="5" name="Enter the woods" tags="" position="836,104" size="100,100">=&gt;&lt;= 
-HP: $hp/10
-&lt;==
-Deep within the forest, You encounter a dirt path leading to a suspicious looking door on the side of a mountain.
+[[Attack Skeleton]]</tw-passagedata><tw-passagedata pid="5" name="Enter the woods" tags="" position="836,104" size="100,100">Deep within the forest, You encounter a dirt path leading to a suspicious looking door on the side of a mountain.
 
 [[Run Away]] 
-[[Enter Dungeon]] </tw-passagedata><tw-passagedata pid="6" name="Sneak past it" tags="" position="536,484" size="100,100">=&gt;&lt;= 
-HP: $hp/10
-&lt;==
-
-Using the pillars around the room, you avoid its sight. But when you near the exit, it notices you! 
+[[Enter Dungeon]] </tw-passagedata><tw-passagedata pid="6" name="Sneak past it" tags="" position="536,483" size="100,100">Using the pillars around the room, you avoid its sight. But when you near the exit, it notices you! 
 [[Attack-&gt;Skeleton Sneak Attack]]
-[[Run-&gt;Large Door]]</tw-passagedata><tw-passagedata pid="7" name="Attack Skeleton" tags="" position="836,484" size="100,100">=&gt;&lt;= 
-HP: $hp/10
-&lt;==
-
-You walk towards the skeleton, and before it even has a chance, swiftly remove its head with your sword. It drops a red crystal. You pick it up, and feeling confident, you immediately go into the next room.
+[[Run-&gt;Large Door]]</tw-passagedata><tw-passagedata pid="7" name="Attack Skeleton" tags="" position="836,484" size="100,100">You walk towards the skeleton, and before it even has a chance, swiftly remove its head with your sword. It drops a red crystal. You pick it up, and feeling confident, you immediately go into the next room.
 (set: $crystal = 1)
-[[Head into the next room-&gt;Large Door]]</tw-passagedata><tw-passagedata pid="8" name="Skeleton Sneak Attack" tags="" position="386,584" size="100,100">=&gt;&lt;= 
-HP: $hp/10
-&lt;==
+[[Head into the next room-&gt;Large Door]]</tw-passagedata><tw-passagedata pid="8" name="Skeleton Sneak Attack" tags="" position="386,584" size="100,100">You try to attack, but not before the skeleton lunges forward and slashes at you. You partially block it before finally defeating it, taking damage. At least it drops an interesting crystal!
 
-You try to attack, but not before the skeleton lunges forward and slashes at you. You partially block it before finally defeating it, taking damage. At least it drops an interesting crystal!
-
-(set: $hp -= 2)
+(set: $hp -= 1)
 (set: $crystal = 1)
 
-[[Exit the room-&gt;Large Door]] </tw-passagedata><tw-passagedata pid="9" name="Large Door" tags="" position="686,584" size="100,100">=&gt;&lt;= 
-HP: $hp/10
-&lt;==
-
-You are in a room with nothing but a massive door in the front. It won&#39;t seem to open with your hands.
+[[Exit the room-&gt;Large Door]] </tw-passagedata><tw-passagedata pid="9" name="Large Door" tags="" position="686,584" size="100,100">You are in a room with nothing but a massive door in the front. It won&#39;t seem to open with your hands.
 
 [[Go back and down the stairs-&gt;Head downstairs]] 
-(if: $crystal &gt; 0)[[Raise the crystal in front of the door-&gt;Library]]</tw-passagedata><tw-passagedata pid="10" name="Library" tags="" position="686,733" size="100,100">=&gt;&lt;= 
-HP: $hp/10
-&lt;==
+(if: $crystal &gt; 0)[[Raise the crystal in front of the door-&gt;Library]]</tw-passagedata><tw-passagedata pid="10" name="Library" tags="" position="687,733" size="100,100">You are in what seems to be an endless library. There are [[books]] everywhere, and an odd (if: $buttonFlag is false)[ [[button]] ](else:)[button] next to the entrance.
 
-You are in what seems to be an endless library. There are [[books]] everywhere, and an odd [[button]] next to the entrance.
-
-[[Walk around the library]]</tw-passagedata><tw-passagedata pid="11" name="books" tags="" position="422,787" size="100,100">=&gt;&lt;= 
-HP: $hp/10
-&lt;==
-
-(set: $bookFlag to true)
+[[Walk around the library]]</tw-passagedata><tw-passagedata pid="11" name="books" tags="" position="422,787" size="100,100">(set: $bookFlag to true)
 
 (if: $buttonFlag is true)[You walk closer, and you notice that there is a clear scheme in the books; they are all either [red]&lt;c4|, [blue]&lt;c2|, or [black]&lt;c3|.](else:)[You walk closer, and you notice that there is a clear scheme in the books; they are all either [red]&lt;c1|, [blue]&lt;c2|, or [black]&lt;c3|.]
 
@@ -91,103 +50,47 @@ HP: $hp/10
 (click: ?c4)[The red books are all...blood-stained? You notice that they don&#39;t have any pages in them, but strange vials of [[liquid]].]
 
 [[Explore further-&gt;Walk around the library]] 
-</tw-passagedata><tw-passagedata pid="12" name="button" tags="" position="663,873" size="100,100">=&gt;&lt;= 
-HP: $hp/10
-&lt;==
-
-Pressing the button causes some whirring in the distance, but you don&#39;t notice any immediate change...
+</tw-passagedata><tw-passagedata pid="12" name="button" tags="" position="687,907" size="100,100">Pressing the button causes some whirring in the room, but you don&#39;t notice any immediate change... 
 
 (set: $buttonFlag to true)
 
-[[Examine books-&gt;books]] 
-[[Walk around the library]] </tw-passagedata><tw-passagedata pid="13" name="Walk around the library" tags="" position="906,789" size="100,100">=&gt;&lt;= 
-HP: $hp/10
-&lt;==
+[[Go back-&gt;Library]] </tw-passagedata><tw-passagedata pid="13" name="Walk around the library" tags="" position="906,789" size="100,100">You explore the library, but it clearly doesn&#39;t end. There are (if: $bookFlag is false)[ [[books]] ] (else:)[books] everywhere, and while you can no longer find the button, you find a small stairwell tucked behind a shelf.
 
-You explore the library, but it clearly doesn&#39;t end. There are (if: $bookFlag is false)[ [[books]] ] (else:)[books] everywhere, and while you can no longer find the button, you find a small stairwell tucked behind a shelf.
+[[Use the stairwell-&gt;Library Stairs]]</tw-passagedata><tw-passagedata pid="14" name="Head downstairs" tags="" position="1100.1999969482422,401" size="100,100">You gradually make your way down the stairway with hestitation. After a while, you begin to notice the torches mounted to the stairway walls are beginning to relinguish their radiance.
 
-[[Use the stairwell-&gt;Library Stairs]]</tw-passagedata><tw-passagedata pid="14" name="Head downstairs" tags="" position="1100.1999969482422,401" size="100,100">=&gt;&lt;= 
-    HP: $hp/10
-    &lt;==
+[[Keep going downward]] </tw-passagedata><tw-passagedata pid="15" name="Keep going downward" tags="" position="1320.1999969482422,436" size="100,100">The lights continue to dim, and you start to doubt your actions. Now, you flinch at a screeching terrorous noises originating from the base of the stairway.
 
-You gradually make your way down the stairway with hestitation. After a while, you begin to notice the torches mounted to the stairway walls are beginning to relinguish their radiance.
+[[EVERYTHING GOES DARK]] </tw-passagedata><tw-passagedata pid="16" name="EVERYTHING GOES DARK" tags="" position="1533.1999969482422,435" size="100,100">You are now stuck for a brief moment, lingering within the darkness. You clasp your hand to your chest to make sure you are still breathing.
 
-[[Keep going downward]] </tw-passagedata><tw-passagedata pid="15" name="Keep going downward" tags="" position="1320.1999969482422,436" size="100,100">=&gt;&lt;= 
-HP: $hp/10
-&lt;==
+[[Try to breathe slowly]] </tw-passagedata><tw-passagedata pid="17" name="Try to breathe slowly" tags="" position="1714,436" size="100,100">Suddenly, the lights are switched back on, but you are no longer in the passageway behind the bookshelf. Instead, You remain on a stairway that is spiraling downward about a giant pillar within the library.
 
-The lights continue to dim, and you start to doubt your actions. Now, you flinch at a screeching terrorous noises originating from the base of the stairway.
-
-[[EVERYTHING GOES DARK]] </tw-passagedata><tw-passagedata pid="16" name="EVERYTHING GOES DARK" tags="" position="1533.1999969482422,435" size="100,100">=&gt;&lt;= 
-HP: $hp/10
-&lt;==
-
-You are now stuck for a brief moment, lingering within the darkness. You clasp your hand to your chest to make sure you are still breathing.
-
-[[Try to breathe slowly]] </tw-passagedata><tw-passagedata pid="17" name="Try to breathe slowly" tags="" position="1714,436" size="100,100">=&gt;&lt;= 
-HP: $hp/10
-&lt;==
-
-Suddenly, the lights are switched back on, but you are no longer in the passageway behind the bookshelf. Instead, You remain on a stairway that is spiraling downward about a giant pillar within the library.
-
-[[Sigh in relief]] </tw-passagedata><tw-passagedata pid="18" name="Sigh in relief" tags="" position="1912,432" size="100,100">=&gt;&lt;= 
-HP: $hp/10
-&lt;==
-
-But your rest must wait due to sounds of laughter from above. Within a few seconds, a barrier encompasses the edges of the stairway. You look upwards to see that a huge iron boulder has been hurled down from the zenith of the stairway in your direction. What are you going to do, now?
+[[Sigh in relief]] </tw-passagedata><tw-passagedata pid="18" name="Sigh in relief" tags="" position="1912,432" size="100,100">But your rest must wait due to sounds of laughter from above. Within a few seconds, a barrier encompasses the edges of the stairway. You look upwards to see that a huge iron boulder has been hurled down from the zenith of the stairway in your direction. What are you going to do, now?
 
 [[Slice through the Barrier and leap to the library floor-&gt;Library]]
-[[RUN Duh.]] </tw-passagedata><tw-passagedata pid="19" name="RUN Duh." tags="" position="1406,577" size="100,100">=&gt;&lt;= 
-HP: $hp/10
-&lt;==
-
-You rush down the stairway trying to out-pace the hunk of metal when you examine your height above the ground. You are only suspended about 20 feet above the ground now. Maybe jumping to the ground now is a better option???
+[[RUN Duh.]] </tw-passagedata><tw-passagedata pid="19" name="RUN Duh." tags="" position="1406,576" size="100,100">You rush down the stairway trying to out-pace the hunk of metal when you examine your height above the ground. You are only suspended about 20 feet above the ground now. Maybe jumping to the ground now is a better option???
 
 [[Slice through the Barrier and leap to the library floor-&gt;Library]]
-[[Keep Running Man!!!]] </tw-passagedata><tw-passagedata pid="20" name="Keep Running Man!!!" tags="" position="1676,575" size="100,100">=&gt;&lt;= 
-HP: $hp/10
-&lt;==
-
-You make it down to about 10 feet above ground. You observe a Minotour adjacent to the stairway where you are about to pass. Is now the time for dangerous manuevers??
+[[Keep Running Man!!!]] </tw-passagedata><tw-passagedata pid="20" name="Keep Running Man!!!" tags="" position="1676,575" size="100,100">You make it down to about 10 feet above ground. You observe a Minotour adjacent to the stairway where you are about to pass. Is now the time for dangerous manuevers??
 
 [[Just Keep Running. Just Keep Running.-&gt;Library]]
-[[Slice through the Barrier, leap to the library floor while downthrusting your blade into the Minotaur&#39;s back. What can go wrong?]]</tw-passagedata><tw-passagedata pid="21" name="Slice through the Barrier, leap to the library floor while downthrusting your blade into the Minotaur&#39;s back. What can go wrong?" tags="" position="1363,743" size="100,100">=&gt;&lt;= 
-HP: $hp/10
-&lt;==
-
-You downward stab your blade into the thick skinned Minotaur&#39;s pelt. Afterwards, you land on the library floor with very little bruising. Congratulations, that a actually worked, but now you have another problem. Your sword is now lodged in the Minotaur&#39;s back. Soooo... good luck with that.
+[[Slice through the Barrier, leap to the library floor while downthrusting your blade into the Minotaur&#39;s back. What can go wrong?]]</tw-passagedata><tw-passagedata pid="21" name="Slice through the Barrier, leap to the library floor while downthrusting your blade into the Minotaur&#39;s back. What can go wrong?" tags="" position="1362,743" size="100,100">You downward stab your blade into the thick skinned Minotaur&#39;s pelt. Afterwards, you land on the library floor with very little bruising. Congratulations, that a actually worked, but now you have another problem. Your sword is now lodged in the Minotaur&#39;s back. Soooo... good luck with that.
 
 [[Rush the Minotaur-&gt;Library]]
-[[Retreat and come up with a plan]] </tw-passagedata><tw-passagedata pid="22" name="Retreat and come up with a plan" tags="" position="1572,744" size="100,100">=&gt;&lt;= 
-    HP: $hp/10
-    &lt;==
-
- </tw-passagedata><tw-passagedata pid="23" name="liquid" tags="" position="430,944" size="100,100">=&gt;&lt;= 
-HP: $hp/10
-&lt;==
-
-The strange liquid seems to be purple in color. Drink it?
+[[Retreat and come up with a plan]] </tw-passagedata><tw-passagedata pid="22" name="Retreat and come up with a plan" tags="" position="1572,744" size="100,100"></tw-passagedata><tw-passagedata pid="23" name="liquid" tags="" position="430,944" size="100,100">The strange liquid seems to be purple in color. Drink it?
 
 [[Yes-&gt;Drink liquid]]
 [[No-&gt;Keep liquid]]
-</tw-passagedata><tw-passagedata pid="24" name="Library Stairs" tags="" position="903,999" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="25" name="Drink liquid" tags="" position="352,1100" size="100,100">=&gt;&lt;= 
-HP: $hp/10
-&lt;==
+</tw-passagedata><tw-passagedata pid="24" name="Library Stairs" tags="" position="903,999" size="100,100">You notice a hidden stairwell and head down.</tw-passagedata><tw-passagedata pid="25" name="Drink liquid" tags="" position="352,1100" size="100,100">You feel rejuvenated after drinking the potion.
+(set: $hp to 5)
 
-You feel rejuvenated after drinking the potion.
-(set: $hp to 10)
-
-[[Continue onwards-&gt;Walk around the library]] </tw-passagedata><tw-passagedata pid="26" name="Keep liquid" tags="" position="505,1095" size="100,100">=&gt;&lt;= 
-HP: $hp/10
-&lt;==
-
-You decide to keep the vial of liquid, as drinking something like this would be ridiculous.
+[[Continue onwards-&gt;Walk around the library]] </tw-passagedata><tw-passagedata pid="26" name="Keep liquid" tags="" position="505,1095" size="100,100">You decide to keep the vial of liquid, as drinking something like this would be ridiculous.
 (set: $vial = 1)
-[[Continue onwards-&gt;Walk around the library]] </tw-passagedata><tw-passagedata pid="27" name="Variable Initialization" tags="startup" position="1002,0" size="100,100">(set: $hp = 10)
+[[Continue onwards-&gt;Walk around the library]] </tw-passagedata><tw-passagedata pid="27" name="Variable Initialization" tags="startup" position="1004,0" size="100,100">(set: $hp = 5)
 (set: $buttonFlag to false)
 (set: $bookFlag to false)
 (set: $book to 0)
-(set: $vial to 0)</tw-passagedata></tw-storydata>
+(set: $vial to 0)</tw-passagedata><tw-passagedata pid="28" name="HP Header" tags="header" position="1210,0" size="100,100">(align: &quot;=&gt;&lt;=&quot;) [HP: $hp/5]
+</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
