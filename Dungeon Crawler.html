@@ -67,7 +67,7 @@ You see a stairway to your left, another to your right, and an open room in fron
 [[Go back and down the stairs-&gt;theDepths]] 
 (if: $crystal &gt; 0)[[Raise the crystal in front of the door-&gt;Library]]</tw-passagedata><tw-passagedata pid="18" name="Library" tags="" position="687,733" size="100,100">You are in what seems to be an endless library. There are [[books]] everywhere, and an odd (if: $buttonFlag is false)[ [[button]] ](else:)[button] next to the entrance.
 
-[[Walk around the library]]</tw-passagedata><tw-passagedata pid="19" name="books" tags="" position="422,785" size="100,100">(set: $bookFlag to true)
+[[Walk around the library]]</tw-passagedata><tw-passagedata pid="19" name="books" tags="" position="422,784" size="100,100">(set: $bookFlag to true)
 
 (if: $buttonFlag is true)[You walk closer, and you notice that there is a clear scheme in the books; they are all either [red]&lt;c4|, [blue]&lt;c2|, or [black]&lt;c3|.](else:)[You walk closer, and you notice that there is a clear scheme in the books; they are all either [red]&lt;c1|, [blue]&lt;c2|, or [black]&lt;c3|.]
 
@@ -243,7 +243,7 @@ The sound has stopped...
 [[WHAT WAS THAT? (Lean against the wall in a panic) -&gt;LEAN AGAINST THE WALL IN A PANIC]] 
 [[Oh hell no (Run back) -&gt;Enter Dungeon]] </tw-passagedata><tw-passagedata pid="51" name="Bottom Floor" tags="" position="891,1005" size="100,100">You head down the stairs, but suddenly the steps shift and you&#39;re falling down until you land in a pool of water. Could this be because of the button? You are in a very large open room filled with fog.
 
-[[Walk forward-&gt;Boss battle]]</tw-passagedata><tw-passagedata pid="52" name="Boss battle" tags="" position="890,1153" size="100,100">Suddenly, a very large demon is in front of you.
+[[Walk forward-&gt;Boss battle]]</tw-passagedata><tw-passagedata pid="52" name="Boss battle" tags="" position="891,1153" size="100,100">Suddenly, a very large demon is in front of you.
 
 &quot;I&#39;ve been waiting, adventurer. You&#39;ve done surprisingly well so far, but now you meet your end&quot;.
 
@@ -257,11 +257,17 @@ The sound has stopped...
 
 [[Blood Magic]]
 [[Necromancy]]
-[[Demonic Scripture]]</tw-passagedata><tw-passagedata pid="55" name="Attack demon" tags="" position="742,1305" size="100,100">You slash at the demon, pathetically. He is far too powerful for a newborn adventurer such as yourself.
+[[Demonic Scripture]]</tw-passagedata><tw-passagedata pid="55" name="Attack demon" tags="" position="742,1305" size="100,100">(if: $bossExamine is false) [You slash at the demon, pitifully. He is far too powerful for a newborn adventurer such as yourself.
 
-&quot;Pathetic,&quot; the demon utters, as he slices you in half.
+&quot;Pathetic,&quot; the demon utters, as he slices you in half.]
+(if: $bossExamine is true) 
+[You charge at the demon, but fake your attack and grab at his pouch. The demon&#39;s pouch falls to the ground near you, and he is unaware.
+&quot;What sort of attack was that? Is this truly all you can muster?&quot;]
 
-[[Defeat-&gt;Death]] </tw-passagedata><tw-passagedata pid="56" name="Use vial" tags="" position="1324,1303" size="100,100">You splash the vial of liquid onto the demon, and he recoils. You must act quickly.
+(if: $bossExamine is false)[ [[Defeat-&gt;Death]] ]
+(if: $bossExamine is true)[ 
+[[Bluff while walking towards the pouch-&gt;Bluff]]
+[[Taunt while walking towards the pouch-&gt;Taunt]]]</tw-passagedata><tw-passagedata pid="56" name="Use vial" tags="" position="1324,1303" size="100,100">You splash the vial of liquid onto the demon, and he recoils. You must act quickly.
 
 [[Stab his eyes]]
 [[Look for an escape route]]
@@ -287,7 +293,7 @@ You attempt to make small talk with the demon while examining your surroundings.
 
 &quot;I admire your lack of fear, adventurer. However, my commitments are far beyond that which someone of your understanding would ever be able to comprehend.&quot;
 
-[[Choose an action -&gt;Boss battle]] </tw-passagedata><tw-passagedata pid="63" name="Potion Win" tags="" position="1486,1445" size="100,100">You quickly grasp at the demon&#39;s pouch while he&#39;s under the effect of the vial&#39;s liquid, and take it! As the demon realizes what is happening, it&#39;s too late. You smugly drink the potion in front of him, teleporting back home.
+[[Choose an action -&gt;Boss battle]] </tw-passagedata><tw-passagedata pid="63" name="Potion Win" tags="" position="1486,1445" size="100,100">You quickly grasp at the demon&#39;s pouch and take it! As the demon realizes what is happening, it&#39;s too late. You smugly drink the potion in front of him, teleporting back home.
 
 Successful escape!</tw-passagedata><tw-passagedata pid="64" name="Dodge roll" tags="" position="1266,1595" size="100,100">While the demon is massive, you are faster. You predict his attack and successfully roll under his legs.
 
@@ -299,7 +305,21 @@ You win.</tw-passagedata><tw-passagedata pid="67" name="Necromancer win" tags=""
 
 Victory...?</tw-passagedata><tw-passagedata pid="68" name="No, I lied. I just want to leave." tags="" position="1120,1600" size="100,100">&quot;...Disappointing. You may have ruined your only chance to survive this encounter.&quot;
 
-[[Death awaits you-&gt;Death]]</tw-passagedata></tw-storydata>
+[[Death awaits you-&gt;Death]]</tw-passagedata><tw-passagedata pid="69" name="Bluff" tags="" position="660,1449" size="100,100">&quot;I know, I know, that was an awful attempt. To be honest, I was panicking. Could you graciously give me another go?&quot;
+
+&quot;Hah! I admire your effort. Very well, come at me.&quot;
+
+The bluff was successful. You are right next to the pouch, and instead of going for an attack, grab the pouch!
+
+[[Drink the recall potion-&gt;Potion Win]] </tw-passagedata><tw-passagedata pid="70" name="Taunt" tags="" position="781,1454" size="100,100">&quot;That was a fake attack. I was only testing to see what you would do.&quot;
+
+&quot;BAH! You want to see what I can do?&quot;
+
+The demon flicks a bolt of shadow at you. It moves rapidly, and before you know it, your body is quickly decaying.
+
+&quot;Do not attempt to test ME, fool.&quot;
+
+[[Defeat-&gt;Death]] </tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
