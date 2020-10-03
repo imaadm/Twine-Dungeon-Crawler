@@ -15,7 +15,7 @@
 
 
 
-[[Enter the woods]] </tw-passagedata><tw-passagedata pid="2" name="Enter Dungeon" tags="" position="821,230" size="100,100">You touch the door, causing it to briefly glow and open. After heading inside, the door immediately shuts behind you, and you are unable to turn back.
+[[Enter the woods]] </tw-passagedata><tw-passagedata pid="2" name="Enter Dungeon" tags="" position="826,229" size="100,100">You touch the door, causing it to briefly glow and open. After heading inside, the door immediately shuts behind you, and you are unable to turn back.
 You see a stairway to your left, another to your right, and an open room in front.
 
 [[Head downstairs to the left-&gt;theDepths]]
@@ -27,7 +27,7 @@ You see a stairway to your left, another to your right, and an open room in fron
 
 [[Head downstairs-&gt;theDepths]]
 [[Enter the room-&gt;Enter the room]]
-</tw-passagedata><tw-passagedata pid="5" name="theDepths" tags="" position="1643,578" size="100,100">When you arrive downstairs, you are greeted with a scent of blood in the air and a rectangular stone cave. The sound of droplets is one of the few sounds that you could hear within this place. It isn&#39;t dark, but one could still be driven to terror by the snoozing of [[five sleeping wolves-&gt;wolves]] in the center of the room. They dwell between [[two bloodstained lines-&gt;lines]] parallel to one another almost as if the wolves were restricted by the lines. On your side of the room, there are two stone signs, one looking at you from your [[right-&gt;right]] and the other from your [[left-&gt;left]].  On the other side of the smelly chamber, passed the second line, laid a [[third stone-&gt;fStone]] sign.
+</tw-passagedata><tw-passagedata pid="5" name="theDepths" tags="" position="1684,576" size="100,100">When you arrive downstairs, you are greeted with a scent of blood in the air and a rectangular stone cave. The sound of droplets is one of the few sounds that you could hear within this place. It isn&#39;t dark, but one could still be driven to terror by the snoozing of [[five sleeping wolves-&gt;wolves]] in the center of the room. They dwell between [[two bloodstained lines-&gt;lines]] parallel to one another almost as if the wolves were restricted by the lines. On your side of the room, there are two stone signs, one looking at you from your [[right-&gt;right]] and the other from your [[left-&gt;left]].  On the other side of the smelly chamber, passed the second line, laid a [[third stone-&gt;fStone]] sign.
 
     [[Go back upstairs-&gt;backUpStairs]]
     </tw-passagedata><tw-passagedata pid="6" name="wolves" tags="" position="1710,826" size="100,100">You observe the beasts in their natural habitat: &#39;Ah, sleeping puppies&#39;.
@@ -62,10 +62,10 @@ You see a stairway to your left, another to your right, and an open room in fron
 
 (set: $crystal = 1)
 
-[[Exit the room-&gt;Large Door]] </tw-passagedata><tw-passagedata pid="17" name="Large Door" tags="" position="687,585" size="100,100">You are in a room with nothing but a massive door in the front. It won&#39;t seem to open with your hands.
+[[Exit the room-&gt;Large Door]] </tw-passagedata><tw-passagedata pid="17" name="Large Door" tags="" position="689,601" size="100,100">You are in a room with nothing but a massive door in the front. It won&#39;t seem to open with your hands.
 
 [[Go back and down the stairs-&gt;theDepths]] 
-(if: $crystal &gt; 0)[[Raise the crystal in front of the door-&gt;Library]]</tw-passagedata><tw-passagedata pid="18" name="Library" tags="" position="687,733" size="100,100">You are in what seems to be an endless library. There are [[books]] everywhere, and an odd (if: $buttonFlag is false)[ [[button]] ](else:)[button] next to the entrance.
+(if: $crystal &gt; 0)[[Raise the crystal in front of the door-&gt;Library]]</tw-passagedata><tw-passagedata pid="18" name="Library" tags="" position="687,735" size="100,100">You are in what seems to be an endless library. There are [[books]] everywhere, and an odd (if: $buttonFlag is false)[ [[button]] ](else:)[button] next to the entrance.
 
 [[Walk around the library]]</tw-passagedata><tw-passagedata pid="19" name="books" tags="" position="422,784" size="100,100">(set: $bookFlag to true)
 
@@ -73,7 +73,7 @@ You see a stairway to your left, another to your right, and an open room in fron
 
 (click: ?c1)[The red books are all...blood-stained? They don&#39;t open.]
 (click: ?c2)[Touching the blue books burn you! (set: $hp -=1)]
-(if: $hp is 0)[(go-to: &quot;Death&quot;)]
+(if: $hp &lt;= 0)[(go-to: &quot;Death&quot;)]
 (click: ?c3)[The black books actually open; they are clearly books of necromancy, although you can&#39;t understand the language. You take one. (set: $book = 1)]
 (click: ?c4)[The red books are all...blood-stained? You notice that they don&#39;t have any pages in them, but strange vials of [[liquid]].]
 
@@ -82,9 +82,12 @@ You see a stairway to your left, another to your right, and an open room in fron
 
 (set: $buttonFlag to true)
 
-[[Go back-&gt;Library]] </tw-passagedata><tw-passagedata pid="21" name="Walk around the library" tags="" position="896,785" size="100,100">You explore the library, but it clearly doesn&#39;t end. There are (if: $bookFlag is false)[ [[books]] ] (else:)[books] everywhere, and while you can no longer find the button, you find a small stairwell tucked behind a shelf.
+[[Go back-&gt;Library]] </tw-passagedata><tw-passagedata pid="21" name="Walk around the library" tags="" position="886,784" size="100,100">(if: $crystal &gt; 0) [ You explore the library, but it clearly doesn&#39;t end. There are (if: $bookFlag is false)[ [[books]] ] (else:)[books] everywhere, and while you can no longer find the button, your crystal starts to resonate and one of the tiles opens up a hidden passage. ]
+(else:) [ You explore the library, but it clearly doesn&#39;t end. There are (if: $bookFlag is false)[ [[books]] ] (else:)[books] everywhere, and while you can no longer find the button, you find a small stairwell tucked behind a shelf. ] 
 
- [[Use the stairwell-&gt;Bottom Floor]]</tw-passagedata><tw-passagedata pid="22" name="Use the stairwell" tags="" position="1100,401" size="100,100">You gradually make your way down the stairway with hestitation. After a while, you begin to notice the torches mounted to the stairway walls are beginning to relinguish their radiance.
+ (if: $crystal &gt; 0)[  [[Use the hidden passage-&gt;Bottom Floor]] ]
+ (else:) [ [[Use the stairwell-&gt;Use the stairwell]] ]
+</tw-passagedata><tw-passagedata pid="22" name="Use the stairwell" tags="" position="1097,409" size="100,100">You gradually make your way down the stairway with hestitation. After a while, you begin to notice the torches mounted to the stairway walls are beginning to relinguish their radiance.
 
 [[Keep going downward]] </tw-passagedata><tw-passagedata pid="23" name="Keep going downward" tags="" position="1286,436" size="100,100">The lights continue to dim, and you start to doubt your actions. Now, you flinch at a screeching terrorous noises originating from the base of the stairway.
 
@@ -107,7 +110,7 @@ You see a stairway to your left, another to your right, and an open room in fron
 (set:$hasSword = false)
 
 [[Rush the Minotaur-&gt;death3]]
-[[Retreat and live another day-&gt;retreat]] </tw-passagedata><tw-passagedata pid="30" name="Retreat and come up with a plan" tags="" position="1543,761" size="100,100"></tw-passagedata><tw-passagedata pid="31" name="liquid" tags="" position="399,931" size="100,100">There are two vials of strange liquid. One is green, the other being purple. Which do you choose to look at?
+[[Retreat and live another day-&gt;retreat]] </tw-passagedata><tw-passagedata pid="30" name="Retreat and come up with a plan" tags="" position="1543,761" size="100,100"></tw-passagedata><tw-passagedata pid="31" name="liquid" tags="" position="399,929" size="100,100">There are two vials of strange liquid. One is green, the other being purple. Which do you choose to look at?
 
 [[Green! Green things are always good -&gt; GreenLiquid]]
 [[Purple seems interesting... -&gt; PurpleLiquid]]
@@ -118,7 +121,7 @@ You see a stairway to your left, another to your right, and an open room in fron
 [[Return to exploring the library -&gt;Walk around the library]] 
 // route2(I have 3 sections leading to route 2)
     //section A
-</tw-passagedata><tw-passagedata pid="33" name="breakToRoute2" tags="" position="1916,576" size="100,100"> (set:$hp -=2) You thrust through the barrier only to land directly on your feet on the tile floor. Stumbling, you sprain one of your legs, but you cannot stop now due to the gigantic Minotaur on the east side of the library. With a swift glance, you realize that the original entrance to the library has vanished, but the library stairwell is still open.
+</tw-passagedata><tw-passagedata pid="33" name="breakToRoute2" tags="" position="1916,634" size="100,100"> (set:$hp -=2) You thrust through the barrier only to land directly on your feet on the tile floor. Stumbling, you sprain one of your legs, but you cannot stop now due to the gigantic Minotaur on the east side of the library. With a swift glance, you realize that the original entrance to the library has vanished, but the library stairwell is still open.
 
     You rush towards the stairwell with great haste while the Minotaur lays right behind you. Fear becomes further installed in you as the Minotaur grows ever closer to your back, but you manage to make it inside the stairwell only to hear the Minotaur bash directly into the fake bookcase as you slam it shut. In which, the whole chamber housing the hidden stairway begins to diminish causing you to have a dash down the stairway again until you feel the cold winds of the chilly night hit your face. You look back to see that your path has been set for you due to the passage that you came from is now piled in rock. 
    
@@ -126,7 +129,7 @@ You see a stairway to your left, another to your right, and an open room in fron
     
     
     [[Let&#39;s do it cuze.-&gt;bridge]]
-    </tw-passagedata><tw-passagedata pid="34" name="thatGotaHirt" tags="" position="1916,576" size="100,100"> (set:$hp -= 1) You have been running down the stairway for quite some time now. You are tired; so tired that your senses feel skewed. In the process of running at such a high rate, you failed to notice that the barrier has formed a wall directly in front of the exit of the stairway. You bash through the barrier head on leaving you with a major headache and feeling little nauseous.
+    </tw-passagedata><tw-passagedata pid="34" name="thatGotaHirt" tags="" position="2156,576" size="100,100"> (set:$hp -= 1) You have been running down the stairway for quite some time now. You are tired; so tired that your senses feel skewed. In the process of running at such a high rate, you failed to notice that the barrier has formed a wall directly in front of the exit of the stairway. You bash through the barrier head on leaving you with a major headache and feeling little nauseous.
 
     Stumbling, but feeling fit to tackle a bull... wait... a bull. You now realize that you cannot stop now due to the gigantic Minotaur which was only 3 yards away. With a swift glance, you realize that the original entrance to the library has vanished, but the library stairwell is still open.
 
@@ -136,7 +139,7 @@ You see a stairway to your left, another to your right, and an open room in fron
     
 
     [[Let&#39;s do it cuze.-&gt;bridge]]
-    </tw-passagedata><tw-passagedata pid="35" name="retreat" tags="" position="1916,576" size="100,100">With a swift glance, you realize that the original entrance to the library has vanished, but the library stairwell is still open.
+    </tw-passagedata><tw-passagedata pid="35" name="retreat" tags="" position="2156,576" size="100,100">With a swift glance, you realize that the original entrance to the library has vanished, but the library stairwell is still open.
 
     You rush towards the stairwell with great haste while the Minotaur lays right behind you. Fear becomes further installed in you as the Minotaur grows ever closer to your back, but you manage to make it inside the stairwell only to hear the Minotaur bash directly into the fake bookcase as you slam it shut. In which, the whole chamber housing the hidden stairway begins to diminish causing you to have a dash down the stairway again until you feel the cold winds of the chilly night hit your face. You look back to see that your path has been set for you due to the passage that you came from is now piled in rock. 
    
@@ -219,7 +222,7 @@ You hear something roll around on the ground in front of you, when you look over
 
 (set: $crystal = 1)
 
-[[Take a look around -&gt;Large Door]] </tw-passagedata><tw-passagedata pid="48" name=" GetPushed" tags="" position="1212,890" size="100,100">You smile widely at the creature in front of you, &quot;Hello!&quot;
+[[Take a look around -&gt;Large Door]] </tw-passagedata><tw-passagedata pid="48" name=" GetPushed" tags="" position="1212,889" size="100,100">You smile widely at the creature in front of you, &quot;Hello!&quot;
 
 ...
 
@@ -228,11 +231,12 @@ Silence follows as you get a sinking feeling in your stomach.
 *SMACK*
 
 (set: $hp -= 1)
+(if: $hp &lt;= 0)[(go-to: &quot;Death&quot;)]
 
-[[YOU&#39;RE KNOCKED BACK INTO THE ABYSS BELOW -&gt; TheFall]]</tw-passagedata><tw-passagedata pid="49" name=" More Stairs" tags="" position="826,362" size="100,100">You walk down the stairs to the right, spiralling downwards until you begin to hear a soft scratching noise.
+[[YOU&#39;RE KNOCKED BACK INTO THE ABYSS BELOW -&gt; TheFall]]</tw-passagedata><tw-passagedata pid="49" name=" More Stairs" tags="" position="836,349" size="100,100">You walk down the stairs to the right, spiralling downwards until you begin to hear a soft scratching noise.
 
 [[That&#39;s weird, I&#39;ll go check it out -&gt; ContinueStairs]]
-[[Yeah, let&#39;s not -&gt;Enter Dungeon]] </tw-passagedata><tw-passagedata pid="50" name=" ContinueStairs" tags="" position="984,463" size="100,100">You decide to continue down the stairs, wanting to investigate the strange noises from below.
+[[Yeah, let&#39;s not -&gt;Enter Dungeon]] </tw-passagedata><tw-passagedata pid="50" name=" ContinueStairs" tags="" position="984,478" size="100,100">You decide to continue down the stairs, wanting to investigate the strange noises from below.
 
 The lights become dim, soon fading until you find yourself stuck in the darkness.
 
@@ -241,9 +245,9 @@ The sound has stopped...
 *SCREECH*
 
 [[WHAT WAS THAT? (Lean against the wall in a panic) -&gt;LEAN AGAINST THE WALL IN A PANIC]] 
-[[Oh hell no (Run back) -&gt;Enter Dungeon]] </tw-passagedata><tw-passagedata pid="51" name="Bottom Floor" tags="" position="891,1005" size="100,100">You head down the stairs, but suddenly the steps shift and you&#39;re falling down until you land in a pool of water. Could this be because of the button? You are in a very large open room filled with fog.
+[[Oh hell no (Run back) -&gt;Enter Dungeon]] </tw-passagedata><tw-passagedata pid="51" name="Bottom Floor" tags="" position="893,935" size="100,100">You take one step and immediately start falling down until you land in a pool of water. You are in a very large open room filled with fog.
 
-[[Walk forward-&gt;Boss battle]]</tw-passagedata><tw-passagedata pid="52" name="Boss battle" tags="" position="891,1153" size="100,100">Suddenly, a very large demon is in front of you.
+[[Walk forward-&gt;Boss battle]]</tw-passagedata><tw-passagedata pid="52" name="Boss battle" tags="" position="890,1096" size="100,100">Suddenly, a very large demon is in front of you.
 
 &quot;I&#39;ve been waiting, adventurer. You&#39;ve done surprisingly well so far, but now you meet your end&quot;.
 
@@ -251,13 +255,13 @@ The sound has stopped...
 [[Charge with all your might-&gt;Attack demon]]
 (if: $bossExamine is false)[ [[Buy time]] ] 
 (if: $book &gt;= 1) [[I&#39;ve actually come to join you, and was studying in the library. (Show your book)-&gt;Show book]]
-(if: $vial &gt;= 1) [[You are already dead. (Use the vial on the demon)-&gt;Use vial]]</tw-passagedata><tw-passagedata pid="53" name="Beg for your life" tags="" position="892,1305" size="100,100">&quot;Honestly, if you had a bit more of a spine maybe I would have considered giving you a less punishing death, but this is just miserable to witness.&quot;
+(if: $vial &gt;= 1) [[You are already dead. (Use the vial on the demon)-&gt;Use vial]]</tw-passagedata><tw-passagedata pid="53" name="Beg for your life" tags="" position="892,1260" size="100,100">&quot;Honestly, if you had a bit more of a spine maybe I would have considered giving you a less punishing death, but this is just miserable to witness.&quot;
 
-[[You have been ripped apart-&gt;Death]] </tw-passagedata><tw-passagedata pid="54" name="Show book" tags="" position="1046,1301" size="100,100">Is that so? Then tell me, mortal. What is written in there?
+[[You have been ripped apart-&gt;Death]] </tw-passagedata><tw-passagedata pid="54" name="Show book" tags="" position="1046,1256" size="100,100">Is that so? Then tell me, mortal. What is written in there?
 
 [[Blood Magic]]
 [[Necromancy]]
-[[Demonic Scripture]]</tw-passagedata><tw-passagedata pid="55" name="Attack demon" tags="" position="742,1305" size="100,100">(if: $bossExamine is false) [You slash at the demon, pitifully. He is far too powerful for a newborn adventurer such as yourself.
+[[Demonic Scripture]]</tw-passagedata><tw-passagedata pid="55" name="Attack demon" tags="" position="742,1260" size="100,100">(if: $bossExamine is false) [You slash at the demon, pitifully. He is far too powerful for a newborn adventurer such as yourself.
 
 &quot;Pathetic,&quot; the demon utters, as he slices you in half.]
 (if: $bossExamine is true) 
@@ -267,51 +271,51 @@ The sound has stopped...
 (if: $bossExamine is false)[ [[Defeat-&gt;Death]] ]
 (if: $bossExamine is true)[ 
 [[Bluff while walking towards the pouch-&gt;Bluff]]
-[[Taunt while walking towards the pouch-&gt;Taunt]]]</tw-passagedata><tw-passagedata pid="56" name="Use vial" tags="" position="1324,1303" size="100,100">You splash the vial of liquid onto the demon, and he recoils. You must act quickly.
+[[Taunt while walking towards the pouch-&gt;Taunt]]]</tw-passagedata><tw-passagedata pid="56" name="Use vial" tags="" position="1324,1258" size="100,100">You splash the vial of liquid onto the demon, and he recoils. You must act quickly.
 
 [[Stab his eyes]]
 [[Look for an escape route]]
-(if: $bossExamine is true)[[Grab the recall potion-&gt;Potion Win]]</tw-passagedata><tw-passagedata pid="57" name="Blood Magic" tags="" position="896,1451" size="100,100">&quot;A respectable assumption, but no. They are books of necromancy, maybe pay more attention next time?&quot;
+(if: $bossExamine is true)[[Grab the recall potion-&gt;Potion Win]]</tw-passagedata><tw-passagedata pid="57" name="Blood Magic" tags="" position="896,1406" size="100,100">&quot;A respectable assumption, but no. They are books of necromancy, maybe pay more attention next time?&quot;
 
-[[Defeat-&gt;Death]] </tw-passagedata><tw-passagedata pid="58" name="Necromancy" tags="" position="1046,1450" size="100,100">&quot;Well, you&#39;ve actually surprised me. So you wish to become a necromancer under my control, then? Is that what you truly want?&quot;
+[[Defeat-&gt;Death]] </tw-passagedata><tw-passagedata pid="58" name="Necromancy" tags="" position="1046,1405" size="100,100">&quot;Well, you&#39;ve actually surprised me. So you wish to become a necromancer under my control, then? Is that what you truly want?&quot;
 
 [[Yes, of course. I was never meant for the adventurer life-&gt;Necromancer win]]
-[[No, I lied. I just want to leave.]]</tw-passagedata><tw-passagedata pid="59" name="Demonic Scripture" tags="" position="1183,1449" size="100,100">&quot;What? There is no such thing as a demonic scripture, fool. Die!&quot;
+[[No, I lied. I just want to leave.]]</tw-passagedata><tw-passagedata pid="59" name="Demonic Scripture" tags="" position="1183,1404" size="100,100">&quot;What? There is no such thing as a demonic scripture, fool. Die!&quot;
 
-[[Defeat-&gt;Death]] </tw-passagedata><tw-passagedata pid="60" name="Stab his eyes" tags="" position="1341,1446" size="100,100">You sprint towards the demon and thrust into one of his eyes. He howls in pain before knocking you back.
+[[Defeat-&gt;Death]] </tw-passagedata><tw-passagedata pid="60" name="Stab his eyes" tags="" position="1341,1401" size="100,100">You sprint towards the demon and thrust into one of his eyes. He howls in pain before knocking you back.
 &quot;Insolent fool, you think this is enough to defeat me?&quot;
 
 The demon readies an attack.
 
 [[Dodge roll-&gt;Dodge roll]]
-[[Parry-&gt;Parry]]</tw-passagedata><tw-passagedata pid="61" name="Look for an escape route" tags="" position="1617,1432" size="100,100">While the demon is agonizing, you look for an escape route, but you realize that you came here through a fall, and there is no other way out.
+[[Parry-&gt;Parry]]</tw-passagedata><tw-passagedata pid="61" name="Look for an escape route" tags="" position="1617,1387" size="100,100">While the demon is agonizing, you look for an escape route, but you realize that you came here through a fall, and there is no other way out.
 
-[[You are doomed. -&gt;Death]] </tw-passagedata><tw-passagedata pid="62" name="Buy time" tags="" position="549,1300" size="100,100">(set: $bossExamine to true)
+[[You are doomed. -&gt;Death]] </tw-passagedata><tw-passagedata pid="62" name="Buy time" tags="" position="549,1255" size="100,100">(set: $bossExamine to true)
 You attempt to make small talk with the demon while examining your surroundings. The room is completely enclosed, other than the pit you fell through at the top. However, you notice that on the demon&#39;s waist is a conveniently placed recall potion sticking out of a pouch.
 
 &quot;You seem very powerful. What exactly do you do around here?&quot;, you ask.
 
 &quot;I admire your lack of fear, adventurer. However, my commitments are far beyond that which someone of your understanding would ever be able to comprehend.&quot;
 
-[[Choose an action -&gt;Boss battle]] </tw-passagedata><tw-passagedata pid="63" name="Potion Win" tags="" position="1486,1445" size="100,100">You quickly grasp at the demon&#39;s pouch and take it! As the demon realizes what is happening, it&#39;s too late. You smugly drink the potion in front of him, teleporting back home.
+[[Choose an action -&gt;Boss battle]] </tw-passagedata><tw-passagedata pid="63" name="Potion Win" tags="" position="1486,1400" size="100,100">You quickly grasp at the demon&#39;s pouch and take it! As the demon realizes what is happening, it&#39;s too late. You smugly drink the potion in front of him, teleporting back home.
 
-Successful escape!</tw-passagedata><tw-passagedata pid="64" name="Dodge roll" tags="" position="1266,1595" size="100,100">While the demon is massive, you are faster. You predict his attack and successfully roll under his legs.
+Successful escape!</tw-passagedata><tw-passagedata pid="64" name="Dodge roll" tags="" position="1266,1550" size="100,100">While the demon is massive, you are faster. You predict his attack and successfully roll under his legs.
 
-[[Backstab-&gt;Backstab]]</tw-passagedata><tw-passagedata pid="65" name="Parry" tags="" position="1416,1596" size="100,100">You attempt to parry the demon&#39;s attack, but he is far too large and its shear strength overwhelms you, breaks your weapon, and every bone in your body.
+[[Backstab-&gt;Backstab]]</tw-passagedata><tw-passagedata pid="65" name="Parry" tags="" position="1416,1551" size="100,100">You attempt to parry the demon&#39;s attack, but he is far too large and its shear strength overwhelms you, breaks your weapon, and every bone in your body.
 
-[[Nice try.-&gt;Death]]</tw-passagedata><tw-passagedata pid="66" name="Backstab" tags="" position="1267,1744" size="100,100">With the demon staggered by your skillfull evasion, you perform a brutal backstab, ending its life. You have conquered the dungeon, and defeated its most powerful being through raw fighting prowess.
+[[Nice try.-&gt;Death]]</tw-passagedata><tw-passagedata pid="66" name="Backstab" tags="" position="1267,1699" size="100,100">With the demon staggered by your skillfull evasion, you perform a brutal backstab, ending its life. You have conquered the dungeon, and defeated its most powerful being through raw fighting prowess.
 
-You win.</tw-passagedata><tw-passagedata pid="67" name="Necromancer win" tags="" position="971,1600" size="100,100">The demon channels his dark power within you, causing your life force to fade and an unholy power to replace it. You have become a necromancer, who now lives in the very dungeon you initially wanted to escape from.
+You win.</tw-passagedata><tw-passagedata pid="67" name="Necromancer win" tags="" position="971,1555" size="100,100">The demon channels his dark power within you, causing your life force to fade and an unholy power to replace it. You have become a necromancer, who now lives in the very dungeon you initially wanted to escape from.
 
-Victory...?</tw-passagedata><tw-passagedata pid="68" name="No, I lied. I just want to leave." tags="" position="1120,1600" size="100,100">&quot;...Disappointing. You may have ruined your only chance to survive this encounter.&quot;
+Victory...?</tw-passagedata><tw-passagedata pid="68" name="No, I lied. I just want to leave." tags="" position="1120,1555" size="100,100">&quot;...Disappointing. You may have ruined your only chance to survive this encounter.&quot;
 
-[[Death awaits you-&gt;Death]]</tw-passagedata><tw-passagedata pid="69" name="Bluff" tags="" position="660,1449" size="100,100">&quot;I know, I know, that was an awful attempt. To be honest, I was panicking. Could you graciously give me another go?&quot;
+[[Death awaits you-&gt;Death]]</tw-passagedata><tw-passagedata pid="69" name="Bluff" tags="" position="660,1405" size="100,100">&quot;I know, I know, that was an awful attempt. To be honest, I was panicking. Could you graciously give me another go?&quot;
 
 &quot;Hah! I admire your effort. Very well, come at me.&quot;
 
 The bluff was successful. You are right next to the pouch, and instead of going for an attack, grab the pouch!
 
-[[Drink the recall potion-&gt;Potion Win]] </tw-passagedata><tw-passagedata pid="70" name="Taunt" tags="" position="781,1454" size="100,100">&quot;That was a fake attack. I was only testing to see what you would do.&quot;
+[[Drink the recall potion-&gt;Potion Win]] </tw-passagedata><tw-passagedata pid="70" name="Taunt" tags="" position="781,1409" size="100,100">&quot;That was a fake attack. I was only testing to see what you would do.&quot;
 
 &quot;BAH! You want to see what I can do?&quot;
 
@@ -325,12 +329,13 @@ The demon flicks a bolt of shadow at you. It moves rapidly, and before you know 
 [[Leave it -&gt; LeaveGreen]]</tw-passagedata><tw-passagedata pid="72" name=" PurpleLiquid" tags="" position="573,899" size="100,100">You observe the purple liquid. It seems to glow mysteriously.
 
 [[Drink it -&gt;Drink liquid]] 
-[[Keep it -&gt;Keep liquid]] </tw-passagedata><tw-passagedata pid="73" name=" DrinkGreen" tags="" position="55,1034" size="100,100">You tilt the vial up against your lips as you consume the strange green liquid.
+[[Keep it -&gt;Keep liquid]] </tw-passagedata><tw-passagedata pid="73" name=" DrinkGreen" tags="" position="47,1037" size="100,100">You tilt the vial up against your lips as you consume the strange green liquid.
 
 It burns as it moves down your throat... Oh no, you don&#39;t feel too great.
 (set: $hp-=1)
+(if: $hp &lt;= 0)[(go-to: &quot;Death&quot;)]
 
-[[Go back to looking around -&gt;Walk around the library]] </tw-passagedata><tw-passagedata pid="74" name=" LeaveGreen" tags="" position="247,1133" size="100,100">You decide the liquid looks a bit too strange to your liking and move on.
+[[Go back to looking around -&gt;Walk around the library]] </tw-passagedata><tw-passagedata pid="74" name=" LeaveGreen" tags="" position="233,1131" size="100,100">You decide the liquid looks a bit too strange to your liking and move on.
 
 [[Return to exploring the library -&gt;Walk around the library]] </tw-passagedata></tw-storydata>
 
