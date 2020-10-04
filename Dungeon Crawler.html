@@ -85,7 +85,7 @@ You see a stairway to your left, another to your right, and an open room in fron
 [[Go back-&gt;Library]] </tw-passagedata><tw-passagedata pid="21" name="Walk around the library" tags="" position="886,784" size="100,100">(if: $crystal &gt; 0) [ You explore the library, but it clearly doesn&#39;t end. There are (if: $bookFlag is false)[ [[books]] ] (else:)[books] everywhere, and while you can no longer find the button, your crystal starts to resonate and one of the tiles opens up a hidden passage. ]
 (else:) [ You explore the library, but it clearly doesn&#39;t end. There are (if: $bookFlag is false)[ [[books]] ] (else:)[books] everywhere, and while you can no longer find the button, you find a small stairwell tucked behind a shelf. ] 
 
- (if: $crystal &gt; 0)[  [[Use the hidden passage-&gt;Bottom Floor]] ]
+ (if: $crystal &gt; 0)[  [[Use the hidden passage-&gt;Use the stairwell]] ]
  (else:) [ [[Use the stairwell-&gt;Use the stairwell]] ]
 </tw-passagedata><tw-passagedata pid="22" name="Use the stairwell" tags="" position="1097,409" size="100,100">You gradually make your way down the stairway with hestitation. After a while, you begin to notice the torches mounted to the stairway walls are beginning to relinguish their radiance.
 
@@ -119,6 +119,40 @@ You see a stairway to your left, another to your right, and an open room in fron
 
 
 [[Return to exploring the library -&gt;Walk around the library]] 
+
+// route 1
+
+
+</tw-passagedata><tw-passagedata pid="9" name="breakToRoute1" tags="" position="1735,1156" size="100,100">(set: $hp -= 3)You burst through the enemy lines as fast as you possibly can, and immediately the wolves raise their eyelids and rush at you. You managed to clear one, two, three of them. Then, you are bashed straight in the side of your shield, where you tumble to the rock ground by one of the wolves. The wolf continues to maw at your shield while its inmates attempt to catch up to you. You now know that you must ditch your shield and make it out with your life. As fast as you can, you use your blade to jab at the Wolf having it fall with your shield to the ground. You consider retrieving the dented piece of metal, but you do not have enough time to do so because one of the wolves leaps on top of you and starts biting you in the arm several times. You throw the wolf off of you and run for the exit, and you make it out with blood dripping from your right arm. But, hey, you made it to the other side of the den.
+
+    [[Look around you -&gt;otherSideDen]]
+</tw-passagedata>
+
+</tw-passagedata><tw-passagedata pid="9" name="otherSideDen" tags="" position="1735,1156" size="100,100">Now that your safe on the other side of the den, you look behind you to see the [[third stone slab -&gt;readFinalSlab]] directly in front of you, a [[skeleton with torn clothes -&gt;getBandages]] off to the right, and a giant mirror that began to shine until no reflection could be seen within it. 
+</tw-passagedata>
+
+</tw-passagedata><tw-passagedata pid="9" name="getBandages" tags="" position="1735,1156" size="100,100">(set:$hp += 1)You remove the garments from the corpse and bandage up your arm. It still hurts, but you feel better.
+
+    [[Step away from corpse -&gt;otherSideDen2]]
+</tw-passagedata>
+
+</tw-passagedata><tw-passagedata pid="9" name="otherSideDen2" tags="" position="1735,1156" size="100,100">Now that your safe on the other side of the den, you look behind you to see the [[third stone slab -&gt;readFinalSlab]] directly in front of you, a skeleton with torn clothes off to the right, and a giant mirror that began to shine until no reflection could be seen within it. 
+
+    [[Examine mirror-&gt;enterMir]]
+</tw-passagedata>
+
+</tw-passagedata><tw-passagedata pid="9" name="readFinalSlab" tags="" position="1735,1156" size="100,100">The final slab reads: As I said before you step through the wolve&#39;s domain, the wolves have '99.999999999998% chance of letting their victims escape without killing them'.... But 100% chance to have their victim&#39;s arm bitten to death.
+
+    [[Step back -&gt;otherSideDen2]]
+   
+</tw-passagedata>
+
+</tw-passagedata><tw-passagedata pid="9" name="enterMir" tags="" position="1735,1156" size="100,100">As You approach the giant mirror, it ever grows brighter; then, it gradually sucks you into its reflective face. You awake it the halls of a giant chanber with 2 enormous marble doors standing about both of the hall's sides. Arriving back to your feet, you notice a replica mirror similar to the one in the wolf den, mounted behind you. You summerize that the mirror must have been some kind of portal, but to where, your not sure yet.
+
+    [[Observe Hallway -&gt;hallway]]
+    
+</tw-passagedata>
+
 // route2(I have 3 sections leading to route 2)
     //section A
 </tw-passagedata><tw-passagedata pid="33" name="breakToRoute2" tags="" position="1916,634" size="100,100"> (set:$hp -=2) You thrust through the barrier only to land directly on your feet on the tile floor. Stumbling, you sprain one of your legs, but you cannot stop now due to the gigantic Minotaur on the east side of the library. With a swift glance, you realize that the original entrance to the library has vanished, but the library stairwell is still open.
@@ -147,6 +181,230 @@ You see a stairway to your left, another to your right, and an open room in fron
     
     
     [[Let&#39;s do it cuze.-&gt;bridge]]
+
+</tw-passagedata><tw-passagedata pid="9" name="bridge" tags="" position="1735,1156" size="100,100">You run across the bridge for the tower with a revived sense of confidence. However, the length of the bridge would you leave you panting heavily once you arrived at the large marble door which led to the final hallway. You reflect on your past successes: ran from a boulder, ran from the Minotaur, ran from falling rocks in the stairwell, and now ran 2 miles across a bridge just to get to the final act. You feel like you can run a marathon now. But now’s not the time. It is time to get serious.With a renewed focus, you step before the gigantic door, ready to erupt its large mouth.
+
+    [['Hold it sonny' -&gt;ehallway]]
+    
+</tw-passagedata>
+
+</tw-passagedata><tw-passagedata pid="9" name="ehallway" tags="" position="1735,1156" size="100,100">You turn back to see an old man who had a set of books strapped to his belt and a cape about his back. 'First of all sonny, I want to say sorry on behalf of my pet Minotaur that chased you down a little while ago. He is not the bad sort. He likes to read ya know. Anyways, to help pepper the situation down for you in dragon's chamber, here&#39;s a little tip. Inside, yall find 3 magic beans. Use them in this order on the dragon: Eletrosity, Spikeball, then Beanstalk. That&#39;ll take her down.'
+
+    'Oh, and an by the way, you missed Dargos back in O&#39;Lengial Castle. What! You don't know who Dargos is. Well, he was considered one of the noblest knights in the queen&#39; army until he betrayed her, leading to his beheading 50 years ago. Now, he drifts within the castle, killing anything in sight. Hey, if you ever run into the gent, like, in some other lifetime (or playthrough), you might want to slay him. Some say that the will become liberated from his, but nobody knows why.' Then, the strange man snapped his finger and disappeared.
+
+    [[Enter the Hall -&gt;hallway]]
+    
+</tw-passagedata>
+
+</tw-passagedata><tw-passagedata pid="9" name="hallway" tags="" position="1735,1156" size="100,100">When entering the hallways chamber, you gaze at a similar door on the other side of the passage. There is a [[strange mirror-&gt;sm]] mounted to the left wall and a table containing three stranged looking objects in a [[showcase-&gt;case]]. There is also a [[book-&gt;read2]] next to the casings.
+    
+</tw-passagedata>
+
+</tw-passagedata><tw-passagedata pid="9" name="sm" tags="" position="1735,1156" size="100,100">Just your average everyday strange mirror with ability to transfer an able body through time and space. Nothing more.
+    
+</tw-passagedata>
+
+</tw-passagedata><tw-passagedata pid="9" name="case" tags="" position="1735,1156" size="100,100">When looking at the case, you see three very eccentric shaped beans. Underneath each individual case, layed the set of names: Beanstalk, Spikeball, and Eletrosity. Hmm, these might be the beans the old man was talking about, but will you take them?
+
+    [[Yes-&gt;hallway2a]]
+    [[YesYes-&gt;hallway2a]]
+    [[Absolutley (No*No)-&gt;hallway2a]]
+    
+</tw-passagedata>
+
+</tw-passagedata><tw-passagedata pid="9" name="read2" tags="" position="1735,1156" size="100,100"> Eletrosity (yes, that's how we spell it.): once thrown will burst into an electronic wave that can be focus by reflecting them off of silver panels.
+
+    Spikeball: a rubbery spike bean that once thrown and stuck to its target, will inflate, making its weight(mass*acceleration of gravity) increase, exceedingly.
+
+    Beanstalk: grows a bloody beanstalk instantly upon planting. Warning: It may or may not be safe to eat.
+    
+</tw-passagedata>
+
+
+</tw-passagedata><tw-passagedata pid="9" name="hallway2a" tags="" position="1735,1156" size="100,100">[[Nice-&gt;hallway2]]. I'm glad you agree.
+</tw-passagedata>
+
+</tw-passagedata><tw-passagedata pid="9" name="hallway2" tags="" position="1735,1156" size="100,100">When entering the hallways chamber, you gaze at a similar door on the other side of the passage. There is a [[strange mirror-&gt;sm]] mounted to the left wall and a table containing three stranged looking objects in a showcase. There is also a [[book-&gt;read2]] next to the casings.
+    
+    [[I am ready-&gt;wcheck]]
+</tw-passagedata>
+
+</tw-passagedata><tw-passagedata pid="9" name="wcheck" tags="" position="1735,1156" size="100,100">You reach for your blade in preparation but find that all your araments have mysteriously vanished from your possession. This is it. You will face the dragon. What will you do?
+
+    [[Cower in fear-&gt;noT]]
+    [[Into the breach, I go!-&gt;fbattle]]
+    [['Run. I hear it's an effective remedy for a good long life.'-&gt;badEnding]]
+</tw-passagedata>
+
+</tw-passagedata><tw-passagedata pid="9" name="noT" tags="" position="1735,1156" size="100,100">No time for that now, son. Into the breach, you go. [['Wa Cha!'-&gt;fbattle]]
+</tw-passagedata>
+
+</tw-passagedata><tw-passagedata pid="9" name="badEnding" tags="" position="1735,1156" size="100,100">You escape that castle with your life, but your are deeply grieved by your failure help your friend and now he is most-likely dead. 
+
+    You turn your head is shame and walk away.
+
+    [[Confirm Your Best Friend's Death Certificate!!!-&gt;sDeath]]
+</tw-passagedata>
+
+</tw-passagedata><tw-passagedata pid="9" name="sDeath" tags="" position="1735,1156" size="100,100">Your Best Friend, death by Your Cowardice!!!
+
+    Bad Ending: The Spark does not live in you.
+</tw-passagedata>
+
+</tw-passagedata><tw-passagedata pid="9" name="fbattle" tags="" position="1735,1156" size="100,100">You step into a large cylinder shaped chamber that extends to the sky. As a matter of fact, you can even see the sky through the tinted skylights. White marble gave the walls its adorned beauty, letting out the reflection of light throughout the chamber. At the bottom of the chamber laid, role out as a carpet on the floor, was a group of grass and flower patches. The soil that a kiss the roots was dark shaded.
+
+    When you align your focus away from the flowers, you realize that there is a cage in the center of the room that is detaining your unconscious friend, and you worry for his safety.
+    
+    [[Step towards the cage-&gt;introB]]
+
+</tw-passagedata>
+
+</tw-passagedata><tw-passagedata pid="9" name="introB" tags="" position="1735,1156" size="100,100">As you attempt to approach the friend, you hear rumble throughout the chamber. The dirt by which you are now standing on, feels even more stable than ever during this tremor.
+
+    Out of nowhere, diving straight from the skyline down straight at your head, swooped a fiendish looking Dragon. However, you perform a swift role out of monsters reach, where you find yourself farther away from the cage. Upon doing so, the beasts backs off and hovers 20 feet above ground. 
+    
+    Then, you look towards it, observing that there is a set of silver plates rapping about the upward parts of the chamber approximately where the Dragon was hovering. Expecting to be attacked at any second, you are surprised that the Dragon has yet to swipe at you again. You are puzzled and terrified, but your friend still needs you. You try to make a step forward only to be attacked by the Dragon once again. You have come to the conclusion that Dragon is only attacking in defense. 
+    
+    So, make your moves carefully.
+    
+    [[Time to take it down, then-&gt;Bat]]
+    [[Showdown Time-&gt;Bat]]
+
+</tw-passagedata>
+
+</tw-passagedata><tw-passagedata pid="9" name="Bat" tags="" position="1735,1156" size="100,100">(set:$state = 0)You looking at the battle. You see the silver plating above you, the dragon itself, and the dirt floor. Something tells you that Eletrosity is the one for the job, but where to utilize it?
+    
+    [[throw at silver plating-&gt;BatAt]]
+    [[throw at the dragon (look at where throwing things at beasties got you last time. Oh, sorry... different timeline.)-&gt;ow1]]
+    [[plant the bean in dirt-&gt;ow2]]
+
+</tw-passagedata>
+
+</tw-passagedata><tw-passagedata pid="9" name="ow1" tags="" position="1735,1156" size="100,100">(set:$hp -=2)You throw the bean at the dragon, but it bounced right off. Wasn't sticky enough. 
+    
+    Suddenly, It magically returns to your hands. 
+    The dragon reigns fire on your head for such defiance. You loose 2 hp.
+
+    (if: $hp <= 0) [
+        (set: $deathType = "Poor Decisions")
+        [[Confirm Death Certificate-&gt;Death]]]
+    
+    (if: $hp > 0)[[[try again-&gt;Bat]]]
+    
+
+</tw-passagedata>
+
+</tw-passagedata><tw-passagedata pid="9" name="ow2" tags="" position="1735,1156" size="100,100">(set:$hp -=2)You plant the bean in the ground, but it has a no effect.  
+    
+    Suddenly, It magically returns to your hands. 
+    The dragon reigns fire on your head for such defiance. You loose 2 hp.
+
+    (if: $hp <= 0) [
+        (set: $deathType = "Poor Decisions")
+        [[Confirm Death Certificate-&gt;Death]])]
+    
+    (if: $hp > 0)[[[try again-&gt;Bat]]]
+    
+
+</tw-passagedata>
+
+</tw-passagedata><tw-passagedata pid="9" name="BatAt" tags="" position="1735,1156" size="100,100">The bean is thrust into to air causing shockwave through the plates. The dragon become stunnedd in place.
+    
+    [[Use next bean-&gt;BatA]]
+
+</tw-passagedata>
+
+</tw-passagedata><tw-passagedata pid="9" name="BatA" tags="" position="1735,1156" size="100,100">You looking at the battle. You see the silver plating above you, the dragon itself, and the dirt floor. Something tells you that Spikeball is the one for the job, but where to utilize it?
+    
+    [[throw at silver plating-&gt;ow1a]]
+    [[throw at the dragon-&gt;BatBt]]
+    [[plant the bean in dirt-&gt;ow2a]]
+
+</tw-passagedata>
+
+</tw-passagedata><tw-passagedata pid="9" name="ow1a" tags="" position="1735,1156" size="100,100">(set:$hp -=2) You through the Spikeball at the plate. However, you miss.
+    
+    Suddenly, It magically returns to your hands. 
+    The dragon reigns fire on your head for such defiance. You loose 2 hp.
+
+    (if $hp <= 0) [
+        (set: $deathType = "Poor Decisions")
+        [[Confirm Death Certificate-&gt;Death]]]
+    
+    (if $hp > 0)[[[try again-&gt;BatA]]]
+    
+
+</tw-passagedata>
+
+</tw-passagedata><tw-passagedata pid="9" name="ow2a" tags="" position="1735,1156" size="100,100">(set:$hp -=2)You plant the bean in the ground, but it has a no effect.  
+    
+    Suddenly, It magically returns to your hands. 
+    The dragon reigns fire on your head for such defiance. You loose 2 hp.
+
+    (if $hp <= 0) [
+        (set: $deathType = "Poor Decisions")
+        [[Confirm Death Certificate-&gt; Death]]]
+    
+    (if $hp > 0)[[[try again-&gt;Bat]]]
+    
+
+</tw-passagedata>
+
+</tw-passagedata><tw-passagedata pid="9" name="BatBt" tags="" position="1735,1156" size="100,100">The bean is thrust into onto the dragon's spike, where it sticks into the skin. Then, it inflate and gains massive weight. The dragon falls to the dirt floor, now, binned to the ground.
+    
+    [[Use next bean-&gt;BatC]]
+
+</tw-passagedata>
+
+</tw-passagedata><tw-passagedata pid="9" name="BatB" tags="" position="1735,1156" size="100,100">(set:$state = 0)You looking at the battle. You see the silver plating above you, the dragon itself, and the dirt floor. Something tells you that Beanstalk is the one for the job, but where to utilize it?
+    
+    [[throw at silver plating-&gt;ow1b]]
+    [[throw at the dragon-&gt;ow2b]]
+    [[plant the bean in dirt-&gt;BatCt]]
+
+</tw-passagedata>
+
+</tw-passagedata><tw-passagedata pid="9" name="ow1b" tags="" position="1735,1156" size="100,100">(set:$hp -=2) You throw the bean, but nothing happens. There's not even a dragon up there.
+    
+    Suddenly, It magically returns to your hands. 
+    The dragon reigns fire on your head for such defiance. You loose 2 hp.
+
+    (if $hp <= 0) [
+        (set: $deathType = "Poor Decisions")
+        [[Confirm Death Certificate-&gt;Death]]]
+    
+    (if $hp > 0)[[[try again-&gt;BatB]]]
+    
+
+</tw-passagedata>
+
+</tw-passagedata><tw-passagedata pid="9" name="ow2b" tags="" position="1735,1156" size="100,100">(set:$hp -=2)You throw the bean at the dragon. No Effect.
+    
+    Suddenly, It magically returns to your hands. 
+    The dragon reigns fire on your head for such defiance. You loose 2 hp.
+
+    (if $hp <= 0) [
+        (set: $deathType = "Poor Decisions")
+        [[Confirm Death Certificate-&gt; Death]]]
+    
+    (if $hp > 0)[[[try again-&gt;BatB]]]
+    
+
+</tw-passagedata>
+
+</tw-passagedata><tw-passagedata pid="9" name="BatCt" tags="" position="1735,1156" size="100,100">The Beans sprout into a blood red vines about the dragon, wrapping their slithering vines. You watch gratually as the life is being sucked out of the overgrown lizard.
+
+    'Now that is what I call using the old bean.' you jest.
+
+    You run to your comrade&#39;s aid, lifting him to his feet.
+
+    The two of you will escape together.
+
+    
+    Good Ending: Comrades to the end.
+
+</tw-passagedata>
+
     </tw-passagedata><tw-passagedata pid="36" name="breakToRoute3" tags="" position="2156,576" size="100,100"> (set:$hp = 1) You thrust your blade throught the barrier with ease only to fall 30 feet to the library floor. Now, you are in bad shape. All your inner joints are inflamed. What&#39;s worse is that a Minotaur lays directly to the east side of the library, holding a large hatchet in his right hand. He notices you and heavily strides towards your position. You panic and question if this is where you die. You try to crawl but it&#39;s of no use. Taking a gander at the broken tiles next to you, you see a magazine, and you think it is an issue of Megaman. Is there anything you can do, now?
     (set:$deathType =&quot;&quot;)
     [[Read the Mag.-&gt;theMagicOfMags]]
