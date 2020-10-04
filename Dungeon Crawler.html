@@ -15,14 +15,14 @@
 
 
 
-[[Enter the woods]] </tw-passagedata><tw-passagedata pid="2" name="Enter Dungeon" tags="" position="826,229" size="100,100">You touch the door, causing it to briefly glow and open. After heading inside, the door immediately shuts behind you, and you are unable to turn back.
+[[Enter the woods]] </tw-passagedata><tw-passagedata pid="2" name="Enter Dungeon" tags="" position="834,227" size="100,100">You touch the door, causing it to briefly glow and open. After heading inside, the door immediately shuts behind you, and you are unable to turn back.
 You see a stairway to your left, another to your right, and an open room in front.
 
 [[Head downstairs to the left-&gt;theDepths]]
 [[Enter the room-&gt;Enter the room]]
 [[Decide to go right for now -&gt; More Stairs]]</tw-passagedata><tw-passagedata pid="3" name="Run Away" tags="" position="685,184" size="100,100">You leave the door, concerned that it might be too dangerous for a new adventurer like yourself. Yet, you find yourself unable to leave the woods, as you always seem to end up in front of the door...
 
-</tw-passagedata><tw-passagedata pid="4" name="backUpStairs" tags="" position="1351,254" size="100,100">
+[[Enter Dungeon]] </tw-passagedata><tw-passagedata pid="4" name="backUpStairs" tags="" position="1351,254" size="100,100">
     You are now back at the front door. Where to now?
 
 [[Head downstairs-&gt;theDepths]]
@@ -84,7 +84,7 @@ You see a stairway to your left, another to your right, and an open room in fron
 
 (set: $buttonFlag to true)
 
-[[Go back-&gt;Library]] </tw-passagedata><tw-passagedata pid="21" name="Walk around the library" tags="" position="899,796" size="100,100">(if: $blueCrystal &gt; 0) [ You explore the library, but it clearly doesn&#39;t end. There are (if: $bookFlag is false)[ [[books]] ] (else:)[books] everywhere, and while you can no longer find the button, your crystal resonates and you find a small stairwell tucked behind a shelf. ] 
+[[Go back-&gt;Library]] </tw-passagedata><tw-passagedata pid="21" name="Walk around the library" tags="" position="901,796" size="100,100">(if: $blueCrystal &gt; 0) [ You explore the library, but it clearly doesn&#39;t end. There are (if: $bookFlag is false)[ [[books]] ] (else:)[books] everywhere, and while you can no longer find the button, your crystal resonates and you find a small stairwell tucked behind a shelf. ] 
 (else:) [ You explore the library, but it clearly doesn&#39;t end. There are (if: $bookFlag is false)[ [[books]] ] (else:)[books] everywhere, and while you can no longer find the button, your crystal starts to resonate and one of the tiles opens up a hidden passage. ]
 
 (if: $blueCrystal &gt; 0) [ [[Use the stairwell-&gt;Use the stairwell]] ]
@@ -396,10 +396,10 @@ You see a stairway to your left, another to your right, and an open room in fron
 
     [[Go to the Wolve&#39;s Domain -&gt;depthsHer]]
     
-</tw-passagedata><tw-passagedata pid="79" name="depthsHer" tags="" position="1582,764" size="100,100">When you arrive the wolves den with Hercules, you are greeted with a scent of blood in the air and a rectangular stone cave. The sound of droplets is one of the few sounds that you could hear within this place. It isn&#39;t dark, but one could still be driven to terror by the snoozing of [[five sleeping wolves-&gt;wolves2]] in the center of the room. They dwell between [[two bloodstained lines-&gt;lines2]] parallel to one another almost as if the wolves were restricted by the lines. On your side of the room, there are two stone signs, one looking at you from your [[right-&gt;right2]] and the other from your [[left-&gt;left2]].  On the other side of the smelly chamber, passed the second line, laid a [[third stone-&gt;fStone2]] sign.
+</tw-passagedata><tw-passagedata pid="79" name="depthsHer" tags="" position="1582,764" size="100,100">When you arrive the wolves den with Hercules, you are greeted with a scent of blood in the air and a rectangular stone cave. The sound of droplets is one of the few sounds that you could hear within this place. It isn&#39;t dark, but one could still be driven to terror by the snoozing of [[five sleeping wolves-&gt;wolves]] in the center of the room. They dwell between [[two bloodstained lines-&gt;lines2]] parallel to one another almost as if the wolves were restricted by the lines. On your side of the room, there are two stone signs, one looking at you from your [[right-&gt;right2]] and the other from your [[left-&gt;left2]].  On the other side of the smelly chamber, passed the second line, laid a [[third stone-&gt;fStone2]] sign.
 
     [[Go through the Wolve&#39;s Domain-&gt;ThroughDomain]]
-    </tw-passagedata><tw-passagedata pid="80" name="wolves2" tags="" position="2102,872" size="100,100">You observe the beasts in their natural habitat: &#39;Ah, sleeping puppies&#39;, you jest.
+    </tw-passagedata><tw-passagedata pid="80" name="wolves" tags="" position="2102,872" size="100,100">You observe the beasts in their natural habitat: &#39;Ah, sleeping puppies&#39;, you jest.
 
         &#39;Seriously man, I just want to pet them all day.&#39; You become uncomfortable with Hercule&#39;s comment, and decided end the conversation there.
 </tw-passagedata><tw-passagedata pid="81" name="lines2" tags="" position="1936,882" size="100,100">You look closer to let the smell of the blood&#39;s divine odor overcome you: &#39;Yep, that is blood alright.&#39; 
@@ -447,7 +447,7 @@ You see a stairway to your left, another to your right, and an open room in fron
 </tw-passagedata><tw-passagedata pid="89" name="Death" tags="" position="1365,909" size="300,300">(align: &quot;=&gt;&lt;=&quot;) [
 $heroName, (if: $deathType != &quot;&quot;) [ death by $deathType!!! ]
 You Are Dead!
-(set: $hp = 5)
+{(set: $hp = 5)
 (set: $maxHp to 5)
 (set: $buttonFlag to false)
 (set: $bookFlag to false)
@@ -456,11 +456,12 @@ You Are Dead!
 (set: $deathType = &quot;&quot;)
 (set: $hasSword = true)
 (set: $vial to 0)
-(set: $bossExamine to false)
+(set: $bossExamine to false)}
     [[Restart story-&gt;Start]]
-]</tw-passagedata><tw-passagedata pid="90" name="Keep liquid" tags="" position="506,1129" size="100,100">You decide to keep the vial of liquid, as drinking something like this would be ridiculous.
+]
+</tw-passagedata><tw-passagedata pid="90" name="Keep liquid" tags="" position="506,1129" size="100,100">You decide to keep the vial of liquid, as drinking something like this would be ridiculous.
 (set: $vial = 1)
-[[Continue onwards-&gt;Walk around the library]] </tw-passagedata><tw-passagedata pid="91" name="Variable Initialization" tags="startup" position="1006,0" size="100,100">(set: $hp = 5)
+[[Continue onwards-&gt;Walk around the library]] </tw-passagedata><tw-passagedata pid="91" name="Variable Initialization" tags="startup" position="1006,0" size="100,100">{ (set: $hp = 5)
 (set: $maxHp to 5)
 (set: $buttonFlag to false)
 (set: $bookFlag to false)
@@ -471,7 +472,8 @@ You Are Dead!
 (set: $vial to 0)
 (set: $crystal to 0)
 (set: $blueCrystal to 0)
-(set: $bossExamine to false)</tw-passagedata><tw-passagedata pid="92" name="HP Header" tags="header" position="1194,0" size="100,100">(align: &quot;=&gt;&lt;=&quot;) [HP: $hp/$maxHp]
+(set: $bossExamine to false)
+}</tw-passagedata><tw-passagedata pid="92" name="HP Header" tags="header" position="1194,0" size="100,100">(align: &quot;=&gt;&lt;=&quot;) [HP: $hp/$maxHp]
 </tw-passagedata><tw-passagedata pid="93" name="LEAN AGAINST THE WALL IN A PANIC" tags="" position="1158,554" size="100,100">You lean against the wall, panicked by the screeches from below and terrified from the loss of light.
 
 However, as you lean back, you fail to touch anything, losing your balance as you fall backwards into the dark abyss.
